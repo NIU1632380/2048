@@ -16,6 +16,14 @@ public class GameBoard {
         // Implementa la lògica per moure a la dreta
     }
 
+    public void moveUp() {
+        // Implementa la lògica per moure amunt
+    }
+
+    public void moveDown() {
+        // Implementa la lògica per moure avall
+    }
+
     public void spawnTile() {
         // Genera un 2 o 4 aleatoriament en una posició buida
     }
