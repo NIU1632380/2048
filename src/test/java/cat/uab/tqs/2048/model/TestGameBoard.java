@@ -1,9 +1,9 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import cat.uab.tqs._2048.model.GameBoard;
+import cat.uab.tqs._2048.model;
 
-class GameBoardTest {
+class GmeBoardTest {
     private GameBoard gameBoard;
 
     @BeforeEach
@@ -29,7 +29,13 @@ class GameBoardTest {
 
     @Test
     void testSwipeLeft() {
-        gameBoard.getBoard()[0] = new int[]{2, 2, 0, 0};
+        int[][] board = {
+            {2, 2, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+        };
+        gameBoard.setGameBoard() = new int[]{2, 2, 0, 0};
         gameBoard.handleSwipeLeft();
         assertArrayEquals(new int[]{4, 0, 0, 0}, gameBoard.getBoard()[0], "Swipe left should combine tiles correctly.");
         
@@ -42,6 +48,13 @@ class GameBoardTest {
 
     @Test
     void testSwipeRight() {
+        int[][] board = {
+            {2, 0, 0, 2},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+        };
+        gameBoard.setGameBoard(board);
         gameBoard.getBoard()[0] = new int[]{2, 0, 0, 2};
         gameBoard.handleSwipeRight();
         assertArrayEquals(new int[]{0, 0, 0, 4}, gameBoard.getBoard()[0], "Swipe right should combine tiles correctly.");
@@ -55,8 +68,13 @@ class GameBoardTest {
 
     @Test
     void testSwipeUp() {
-        gameBoard.getBoard()[0][0] = 2;
-        gameBoard.getBoard()[1][0] = 2;
+        int [][] board = {
+            {2, 0, 0, 0},
+            {2, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+        };
+        gameBoard.setGameBoard(board);
         gameBoard.handleSwipeUp();
         assertEquals(4, gameBoard.getBoard()[0][0], "Swipe up should combine tiles correctly.");
         assertEquals(0, gameBoard.getBoard()[1][0], "Tiles should move correctly after swipe up.");
@@ -70,8 +88,13 @@ class GameBoardTest {
 
     @Test
     void testSwipeDown() {
-        gameBoard.getBoard()[0][0] = 2;
-        gameBoard.getBoard()[3][0] = 2;
+        int[][] board = {
+            {2, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {2, 0, 0, 0}
+        };
+        gameBoard.setGameBoard(board);
         gameBoard.handleSwipeDown();
         assertEquals(0, gameBoard.getBoard()[0][0], "Tiles should move correctly after swipe down.");
         assertEquals(4, gameBoard.getBoard()[3][0], "Swipe down should combine tiles correctly.");
