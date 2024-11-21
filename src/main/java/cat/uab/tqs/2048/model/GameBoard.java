@@ -1,3 +1,4 @@
+package cat.uab.tqs._2048.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,11 +15,23 @@ public class GameBoard {
         spawnTile();
     }
 
+    public int[][] getBoard() {
+        return board;
+    }
+
+    public setGameBoard(int [][] newBoard){
+        if (newBoard.length == MAX_LENGTH && newBoard[0].length == MAX_LENGTH) {
+            board = newBoard}
+        }
+        else
+            throw new IllegalArgumentException("Invalid board size.")
+    }
+
     public void handleSwipeLeft() {
         movement = "left";
         boolean hasBoardChanged = false;
 
-        for (int row = 0; row < board.length; row++) {
+        for (int row = 0; row < MAX_LENGTH; row++) {
             boolean rowChanged = processMovements(board[row], movement);
             if (rowChanged) {
                 hasBoardChanged = true;
@@ -105,7 +118,7 @@ public class GameBoard {
 
     public void spawnTile() {
         List<int[]> emptyTiles = new ArrayList<>();
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < MAX_LENGTH; i++) {
             for (int j = 0; j < MAX_LENGTH; j++) {
                 if (board[i][j] == 0) {
                     emptyTiles.add(new int[] { i, j });
@@ -123,9 +136,6 @@ public class GameBoard {
         board[position[0]][position[1]] = random.nextDouble() < 0.9 ? 2 : 4;
     }
 
-    public int[][] getBoard() {
-        return board;
-    }
 
     private void reverseArray(int[] row) {
         int start = 0;
