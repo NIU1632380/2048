@@ -15,9 +15,8 @@ public class GameBoard {
     }
 
     public GameBoard() {
-        board = new int[MAX_LENGTH][MAX_LENGTH];
-        spawnTile();
-        spawnTile();
+        this.board = new int[MAX_LENGTH][MAX_LENGTH];
+
     }
 
     public int[][] getBoard() {

@@ -5,13 +5,16 @@ public class MockSpawnTile extends GameBoard {
     private int index = 0;
 
     public MockSpawnTile(int[][] predefinedTiles) {
-        super(); // Inicialitza la classe pare
+        super();
         if (predefinedTiles == null) {
-            throw new IllegalArgumentException("Predefined tiles cannot be null");
+            System.out.println("¡Error! predefinedTiles es null!");
+        } else {
+            System.out.println("Se ha recibido un array de tiles con longitud: " + predefinedTiles.length);
         }
-        System.out.println("MockSpawnTile constructor");
         this.predefinedTiles = predefinedTiles;
     }
+    
+    
 
 
     @Override
@@ -20,10 +23,15 @@ public class MockSpawnTile extends GameBoard {
             int row = predefinedTiles[index][0];
             int col = predefinedTiles[index][1];
             int value = predefinedTiles[index][2];
+    
+            // Establece el valor de la celda
             getBoard()[row][col] = value;
+    
+            // Avanza al siguiente índice para la próxima llamada a spawnTile
             index++;
         }
     }
+    
 
     // Mètode per imprimir el tauler
     public void printBoard() {

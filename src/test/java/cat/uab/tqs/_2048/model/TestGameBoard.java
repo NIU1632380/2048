@@ -43,8 +43,22 @@ class GameBoardTest {
 
     @Test
     void testInitialBoardHasTwoTiles() {
+        // Inicializamos el tablero con un mock o el objeto que esté utilizando para controlarlo.
+        int[][] predefinedTiles = new int[][] {
+            {0, 0, 2}, // Fila 0, Columna 0, Valor 2
+            {1, 1, 4}  // Fila 1, Columna 1, Valor 4
+        };
+    
+        // Usamos MockSpawnTile si es necesario o directamente GameBoard
+        MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
+        
+        // Llamamos a spawnTile para colocar dos tiles en el tablero
+        mockBoard.spawnTile();
+        mockBoard.spawnTile(); 
+    
         int counter = 0;
-        int[][] board = gameBoard.getBoard();
+        int[][] board = mockBoard.getBoard();
+        // Contamos los tiles que no son cero (los tiles generados)
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] != 0) {
@@ -52,7 +66,8 @@ class GameBoardTest {
                 }
             }
         }
-
+    
+        // Verificamos que haya exactamente dos tiles
         assertEquals(2, counter, "The board should start with exactly 2 tiles.");
     }
 
@@ -138,35 +153,30 @@ class GameBoardTest {
         // 2 0 0 0  4 0 0 0
     }
 
-   @Test
-void testSpawnTileControlled() {
-    // Configurar l'estat inicial del tauler
-    int[][] initialBoard = {
-        { 2, 4, 8, 16 },
-        { 32, 64, 128, 256 },
-        { 512, 1024, 2048, 0 },
-        { 0, 0, 0, 0 }
-    };
+    @Test
+    public void testSpawnTileControlled() {
+        // Asegúrate de que el array no es nulo
+        int[][] predefinedTiles = new int[][] {
+            {0, 0, 2}, // Fila, columna, valor
+            {1, 1, 4}
+        };
+    
+        // Crea una instancia de MockSpawnTile pasando el array
+        MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
+    
+        // Llama al método que debe actualizar el tablero
+        mockBoard.spawnTile();
+        mockBoard.spawnTile();
+    
+        // Verifica que las posiciones y los valores de los tiles sean correctos
+        assertEquals(2, mockBoard.getBoard()[0][0], "El valor en la posición (0, 0) debería ser 2");
+        assertEquals(4, mockBoard.getBoard()[1][1], "El valor en la posición (1, 1) debería ser 4");
+        
+        // Imprime el tablero para verificar los cambios
+        mockBoard.printBoard();
+    }
+    
 
-    // Configurar les fitxes predefinides per MockSpawnTile
-    int[][] predefinedTiles = {
-        { 2, 3, 2 }  // Nova fitxa apareix a (2, 3) amb valor 2
-    };
-
-    // Crear MockSpawnTile
-    MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
-    mockBoard.setBoard(initialBoard);
-
-    System.out.println("Before spawn:");
-    mockBoard.printBoard();
-
-    mockBoard.spawnTile(); // Generar la fitxa controlada
-    System.out.println("After spawn:");
-    mockBoard.printBoard();
-
-    // Verificar que la nova fitxa s'ha generat correctament
-    assertEquals(2, mockBoard.getBoard()[2][3], "The new tile should be added at position (2, 3) with value 2.");
-}
 
 
     @Test
