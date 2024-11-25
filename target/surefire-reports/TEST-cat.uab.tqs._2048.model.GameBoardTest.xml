@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cat.uab.tqs._2048.model.GameBoardTest" time="0.098" tests="15" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="jansi.mode" value="force"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="23.0.1+11-Debian-1"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-23-openjdk-amd64/lib"/>
+    <property name="awt.useSystemAAFontSettings" value="on"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/didac/Desktop/uab/tqs/practica/2048"/>
+    <property name="java.vm.vendor" value="Debian"/>
+    <property name="java.vendor.url" value="https://tracker.debian.org/openjdk-23"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/didac/Desktop/uab/tqs/practica/2048"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="23.0.1+11-Debian-1"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/usr/share/maven/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="67.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.11.2-amd64"/>
+    <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
+    <property name="user.home" value="/home/didac"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="23"/>
+    <property name="user.name" value="didac"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test -f /home/didac/Desktop/uab/tqs/practica/2048/pom.xml"/>
+    <property name="java.home" value="/usr/lib/jvm/java-23-openjdk-amd64"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="23.0.1"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Debian"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="swing.aatext" value="true"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.version.date" value="2024-10-15"/>
+    <property name="java.vendor.url.bug" value="https://bugs.debian.org/openjdk-23"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+  </properties>
+  <testcase name="testSwipeDown" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.016"/>
+  <testcase name="testSwipeLeft" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testProcessMovementsLeft" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testSpawnTileControlled" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.007">
+    <error message="Cannot read the array length because &quot;this.predefinedTiles&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read the array length because "this.predefinedTiles" is null
+	at cat.uab.tqs._2048.model.GameBoardTest.testSpawnTileControlled(TestGameBoard.java:157)
+</error>
+  </testcase>
+  <testcase name="testInitialBoardHasTwoTiles" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testMerge" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
+  <testcase name="testSetGameBoardValidBoard" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
+  <testcase name="testSwipeRight" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testProcessMovementsRight" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testCompress" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
+  <testcase name="testReverseArray" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testIsGameOver" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
+  <testcase name="testGameNotOverWhenEmptyTileExists" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
+  <testcase name="testSetGameBoardInvalidBoard" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testSwipeUp" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+</testsuite>
