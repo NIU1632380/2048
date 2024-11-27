@@ -40,23 +40,22 @@ class GameBoardTest {
                 "Should throw exception for invalid board size.");
     }
 
-
-
     @Test
     void testInitialBoardHasTwoTiles() {
-        // Inicializamos el tablero con un mock o el objeto que esté utilizando para controlarlo.
+        // Inicializamos el tablero con un mock o el objeto que esté utilizando para
+        // controlarlo.
         int[][] predefinedTiles = new int[][] {
-            {0, 0, 2}, // Fila 0, Columna 0, Valor 2
-            {1, 1, 4}  // Fila 1, Columna 1, Valor 4
+                { 0, 0, 2 }, // Fila 0, Columna 0, Valor 2
+                { 1, 1, 4 } // Fila 1, Columna 1, Valor 4
         };
-    
+
         // Usamos MockSpawnTile si es necesario o directamente GameBoard
         MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
-        
+
         // Llamamos a spawnTile para colocar dos tiles en el tablero
         mockBoard.spawnTile();
-        mockBoard.spawnTile(); 
-    
+        mockBoard.spawnTile();
+
         int counter = 0;
         int[][] board = mockBoard.getBoard();
         // Contamos los tiles que no son cero (los tiles generados)
@@ -67,7 +66,7 @@ class GameBoardTest {
                 }
             }
         }
-    
+
         // Verificamos que haya exactamente dos tiles
         assertEquals(2, counter, "The board should start with exactly 2 tiles.");
     }
@@ -83,9 +82,10 @@ class GameBoardTest {
         gameBoard.setGameBoard(board);
         gameBoard.handleSwipeLeft();
 
-        //System.out.println("Swipe Left expected Value: 4, 0, 0, 0");
-        //System.out.println("Swipe Left actual Value: " + Arrays.toString(gameBoard.getBoard()[0]));
-        
+        // System.out.println("Swipe Left expected Value: 4, 0, 0, 0");
+        // System.out.println("Swipe Left actual Value: " +
+        // Arrays.toString(gameBoard.getBoard()[0]));
+
         assertEquals(4, gameBoard.getBoard()[0][0],
                 "Swipe left should combine tiles correctly.");
 
@@ -109,11 +109,11 @@ class GameBoardTest {
         assertEquals(4, gameBoard.getBoard()[0][3],
                 "Swipe right should combine tiles correctly.");
 
-        // BEFORE:      AFTER:
-        // 2 0 0 2      0 0 0 4
-        // 0 0 0 0      0 0 0 0
-        // 0 0 0 0      0 0 0 0
-        // 0 0 0 0      0 0 0 0
+        // BEFORE: AFTER:
+        // 2 0 0 2 0 0 0 4
+        // 0 0 0 0 0 0 0 0
+        // 0 0 0 0 0 0 0 0
+        // 0 0 0 0 0 0 0 0
     }
 
     @Test
@@ -126,9 +126,10 @@ class GameBoardTest {
         };
         gameBoard.setGameBoard(board);
         gameBoard.handleSwipeUp();
-        
+
         assertEquals(4, gameBoard.getBoard()[0][0], "Swipe up should combine tiles correctly.");
-        //assertEquals(0, gameBoard.getBoard()[1][0], "Tiles should move correctly after swipe up.");
+        // assertEquals(0, gameBoard.getBoard()[1][0], "Tiles should move correctly
+        // after swipe up.");
 
         // BEFORE: AFTER:
         // 2 0 0 0 4 0 0 0
@@ -147,43 +148,62 @@ class GameBoardTest {
         };
         gameBoard.setGameBoard(board);
         gameBoard.handleSwipeDown();
-        
+
         System.out.println(gameBoard.getBoard());
-        //assertEquals(0, gameBoard.getBoard()[0][0], "Tiles should move correctly after swipe down.");
+        // assertEquals(0, gameBoard.getBoard()[0][0], "Tiles should move correctly
+        // after swipe down.");
         assertEquals(4, gameBoard.getBoard()[3][0], "Swipe down should combine tiles correctly.");
 
-        // BEFORE:  AFTER:
-        // 2 0 0 0  0 0 0 0
-        // 0 0 0 0  0 0 0 0
-        // 0 0 0 0  0 0 0 0
-        // 2 0 0 0  4 0 0 0
+        // BEFORE: AFTER:
+        // 2 0 0 0 0 0 0 0
+        // 0 0 0 0 0 0 0 0
+        // 0 0 0 0 0 0 0 0
+        // 2 0 0 0 4 0 0 0
     }
 
     @Test
     public void testSpawnTileControlled() {
         // Asegúrate de que el array no es nulo
         int[][] predefinedTiles = new int[][] {
-            {0, 0, 2}, // Fila, columna, valor
-            {1, 1, 4}
+                { 0, 0, 2 }, // Fila, columna, valor
+                { 1, 1, 4 }
         };
-    
+
         // Crea una instancia de MockSpawnTile pasando el array
         MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
-    
+
         // Llama al método que debe actualizar el tablero
         mockBoard.spawnTile();
         mockBoard.spawnTile();
-    
+
         // Verifica que las posiciones y los valores de los tiles sean correctos
         assertEquals(2, mockBoard.getBoard()[0][0], "El valor en la posición (0, 0) debería ser 2");
         assertEquals(4, mockBoard.getBoard()[1][1], "El valor en la posición (1, 1) debería ser 4");
-        
+
         // Imprime el tablero para verificar los cambios
         mockBoard.printBoard();
     }
-    
 
+    @Test
+    public void testCalculateScore() {
+        // Test 1: Tablero vacío (sin ningún valor)
+        GameBoard gameBoardEmpty = new GameBoard();
+        int[][] boardEmpty = new int[4][4]; // Tablero vacío (todos los valores son 0)
+        gameBoardEmpty.setGameBoard(boardEmpty);
+        assertEquals(0, gameBoardEmpty.calculateScore(), "La puntuación debe ser 0 para un tablero vacío");
 
+        // Test 2: Tablero con valores grandes
+        GameBoard gameBoardLargeValues = new GameBoard();
+        int[][] boardLargeValues = {
+                { 1024, 2048, 0, 0 },
+                { 4096, 8192, 0, 0 },
+                { 16384, 32768, 0, 0 },
+                { 0, 0, 0, 0 }
+        };
+        gameBoardLargeValues.setGameBoard(boardLargeValues);
+        assertEquals(64512, gameBoardLargeValues.calculateScore(),
+                "La puntuación debe ser la suma de todos los valores grandes en el tablero");
+    }
 
     @Test
     void testReverseArray() {

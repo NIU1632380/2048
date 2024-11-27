@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cat.uab.tqs._2048.controller.GameControllerTest" time="0.384" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cat.uab.tqs._2048.controller.GameControllerTest" time="0.403" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -58,9 +58,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase name="testProcessInputSwipeRight" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.317"/>
-  <testcase name="testProcessInputSwipeUp" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.001"/>
+  <testcase name="testMockGameView" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.319"/>
+  <testcase name="testProcessInputSwipeRight" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.002"/>
+  <testcase name="testProcessInputSwipeUp" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.003"/>
   <testcase name="testProcessInputSwipeDown" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.001"/>
   <testcase name="testProcessInputSwipeLeft" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.001"/>
-  <testcase name="testProcessMultipleInputs" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.008"/>
+  <testcase name="testProcessMultipleInputs" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.002"/>
 </testsuite>

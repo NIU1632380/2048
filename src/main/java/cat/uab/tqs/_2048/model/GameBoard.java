@@ -42,7 +42,15 @@ public class GameBoard {
         }
 
         if (hasBoardChanged) {
-            spawnTile();
+            // spawnTile();
+            int[][] predefinedTiles = new int[][] {
+                    { 0, 3, 2 } // Fila, columna, valor
+            };
+
+            MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
+
+            // Llama al método que debe actualizar el tablero
+            mockBoard.mergePredefinedTiles(getBoard(), predefinedTiles);
         }
 
         isGameOver = isGameOver(board);
@@ -172,7 +180,8 @@ public class GameBoard {
 
         System.arraycopy(finalRow, 0, row, 0, row.length);
 
-        return !java.util.Arrays.equals(originalRow, row); // Returning False if the comparison is TRUE ( no possible movements)
+        return !java.util.Arrays.equals(originalRow, row); // Returning False if the comparison is TRUE ( no possible
+                                                           // movements)
     }
 
     public int[] compress(int[] row) {
@@ -213,6 +222,19 @@ public class GameBoard {
         }
 
         return mergedArray;
+    }
+
+    public int calculateScore() {
+        int score = 0;
+        int rows = board.length;
+        int cols = board[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                score += board[i][j];
+            }
+        }
+        return score;
     }
 
     public boolean isGameOver(int[][] board) {

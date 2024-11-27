@@ -43,6 +43,22 @@ public class MockSpawnTile extends GameBoard {
         }
     }
 
+    public void mergePredefinedTiles(int[][] board, int[][] predefinedTiles) {
+    // Itera sobre las posiciones definidas en predefinedTiles
+    for (int i = 0; i < predefinedTiles.length; i++) {
+        int row = predefinedTiles[i][0]; // Fila
+        int col = predefinedTiles[i][1]; // Columna
+        int value = predefinedTiles[i][2]; // Valor a insertar
+        
+        // Comprueba si la celda está vacía (es decir, tiene valor 0)
+        if (board[row][col] == 0) {
+            // Si está vacía, asigna el valor
+            board[row][col] = value;
+        }
+    }
+}
+
+
     // Mètode per establir un tauler inicial
     public void setBoard(int[][] newBoard) {
         for (int i = 0; i < getBoard().length; i++) {
