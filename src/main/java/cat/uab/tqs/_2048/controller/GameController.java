@@ -20,10 +20,9 @@ public class GameController {
             case "d": model.handleSwipeRight(); break;
             default: System.out.println("Invalid input");
         }
-        //System.out.println("UPDATEEE!!!");
-    System.out.println("Update board:");
+    //System.out.println("Update board:");
     view.update(model.getBoard());
-    System.out.println("Show score:");
+    //System.out.println("Show score:");
     view.showScore(model.calculateScore());
     }
 }

@@ -6,7 +6,7 @@ public class GameView {
     // Método para actualizar y mostrar el tablero en consola.
     public void update(int[][] board) {
 
-        System.out.println("Game Board:");
+        System.out.println("\n\n\nGame Board:");
         int rows = board.length;
         int cols = board[0].length;
 

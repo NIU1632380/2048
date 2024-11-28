@@ -42,15 +42,15 @@ public class GameBoard {
         }
 
         if (hasBoardChanged) {
-            // spawnTile();
-            int[][] predefinedTiles = new int[][] {
+            spawnTile();
+            /* int[][] predefinedTiles = new int[][] {
                     { 0, 3, 2 } // Fila, columna, valor
             };
 
             MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
 
             // Llama al método que debe actualizar el tablero
-            mockBoard.mergePredefinedTiles(getBoard(), predefinedTiles);
+            mockBoard.mergePredefinedTiles(getBoard(), predefinedTiles); */
         }
 
         isGameOver = isGameOver(board);
