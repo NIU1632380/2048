@@ -16,7 +16,6 @@ public class GameBoard {
 
     public GameBoard() {
         this.board = new int[MAX_LENGTH][MAX_LENGTH];
-
     }
 
     public int[][] getBoard() {
@@ -26,8 +25,9 @@ public class GameBoard {
     public void setGameBoard(int[][] newBoard) {
         if (newBoard.length == MAX_LENGTH && newBoard[0].length == MAX_LENGTH) {
             board = newBoard;
-        } else
+        } else {
             throw new IllegalArgumentException("Invalid board size.");
+        }
     }
 
     public void handleSwipeLeft() {
@@ -44,12 +44,12 @@ public class GameBoard {
         if (hasBoardChanged) {
             spawnTile();
             /* int[][] predefinedTiles = new int[][] {
-                    { 0, 3, 2 } // Fila, columna, valor
+                    { 0, 3, 2 } // row, column, value
             };
 
             MockSpawnTile mockBoard = new MockSpawnTile(predefinedTiles);
 
-            // Llama al método que debe actualizar el tablero
+
             mockBoard.mergePredefinedTiles(getBoard(), predefinedTiles); */
         }
 
@@ -148,9 +148,6 @@ public class GameBoard {
     }
 
     public void reverseArray(int[] row) {
-        // 0 2 0 2
-        // 2 0 2 0
-        // 4 0 0 0
         int start = 0;
         int end = row.length - 1;
 
@@ -166,7 +163,7 @@ public class GameBoard {
     public boolean processMovements(int[] row, String movement) {
         int[] originalRow = row.clone();
 
-        if (movement == "right" || movement == "down") {
+        if (movement.equals("right") || movement.equals("down")) {
             reverseArray(row);
         }
 
@@ -174,14 +171,13 @@ public class GameBoard {
         int[] mergedRow = merge(compressedRow);
         int[] finalRow = compress(mergedRow);
 
-        if (movement == "right" || movement == "down") {
+        if (movement.equals("right") || movement.equals("down")) {
             reverseArray(finalRow);
         }
 
         System.arraycopy(finalRow, 0, row, 0, row.length);
 
-        return !java.util.Arrays.equals(originalRow, row); // Returning False if the comparison is TRUE ( no possible
-                                                           // movements)
+        return !java.util.Arrays.equals(originalRow, row); // Returning False if the comparison is TRUE (no possible movements)
     }
 
     public int[] compress(int[] row) {
@@ -202,7 +198,6 @@ public class GameBoard {
         boolean[] hasMerged = new boolean[MAX_LENGTH];
 
         for (int i = 0; i < MAX_LENGTH; i++) {
-
             if (i < MAX_LENGTH - 1 && row[i] == row[i + 1] && !hasMerged[i] && !hasMerged[i + 1]) {
                 mergedRow.add(row[i] * 2);
                 hasMerged[i] = true;
@@ -238,15 +233,24 @@ public class GameBoard {
     }
 
     public boolean isGameOver(int[][] board) {
-        isGameOver = true;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        // Traverse each cell of the board
+        for (int i = 0; i < MAX_LENGTH; i++) {
+            for (int j = 0; j < MAX_LENGTH; j++) {
+                // If there is an empty cell, the game is not over
                 if (board[i][j] == 0) {
-                    isGameOver = false;
+                    return false;
+                }
+
+                // Check possible moves horizontally and vertically
+                if (j < MAX_LENGTH - 1 && board[i][j] == board[i][j + 1]) { // Right
+                    return false;
+                }
+                if (i < MAX_LENGTH - 1 && board[i][j] == board[i + 1][j]) { // Down
+                    return false;
                 }
             }
         }
-
-        return isGameOver;
+        // If there are no empty cells and no possible moves, the game is over
+        return true;
     }
 }

@@ -29,7 +29,7 @@ public class Main {
             }
 
             if (!input.equals("w") && !input.equals("a") && !input.equals("s") && !input.equals("d")) {
-                System.out.println("Invalid move. Please use W, A, S, D, or type 'exit' to quit the game.");
+                System.out.println("Invalid move. Please use W, A, S, D, or type 'q' to quit the game.");
                 continue;
             }
 

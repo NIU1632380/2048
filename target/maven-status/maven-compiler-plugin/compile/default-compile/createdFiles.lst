@@ -1,0 +1,5 @@
+cat/uab/tqs/_2048/controller/GameController.class
+cat/uab/tqs/_2048/model/GameBoard.class
+cat/uab/tqs/_2048/model/MockSpawnTile.class
+cat/uab/tqs/_2048/Main.class
+cat/uab/tqs/_2048/view/GameView.class

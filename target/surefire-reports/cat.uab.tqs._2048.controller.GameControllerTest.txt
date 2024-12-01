@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: cat.uab.tqs._2048.controller.GameControllerTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.403 sec - in cat.uab.tqs._2048.controller.GameControllerTest
+Tests run: 6, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.588 sec <<< FAILURE! - in cat.uab.tqs._2048.controller.GameControllerTest
+testMockGameView()  Time elapsed: 0.485 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: El tablero pasado a la vista no coincide con el esperado ==> array contents differ at index [0][2], expected: <0> but was: <2>
+	at cat.uab.tqs._2048.controller.GameControllerTest.testMockGameView(TestGameController.java:263)
+
+testProcessMultipleInputs()  Time elapsed: 0.011 sec  <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:216)
+  2. -> at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:217)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+

@@ -213,10 +213,14 @@ class GameControllerTest {
         System.out.println("fourth movement actual Value: " + Arrays.toString(gameBoard.getBoard()[3]));
         */
         
+        doNothing().when(mockGameView).update(gameBoard.getBoard());
+        doNothing().when(mockGameView).showScore(anyInt());
 
         // Verificar que la vista se actualiza después de cada movimiento
         verify(mockGameView, times(4)).update(gameBoard.getBoard());
         verify(mockGameView, times(1)).showScore(gameBoard.calculateScore());
+
+        
     }
 
     

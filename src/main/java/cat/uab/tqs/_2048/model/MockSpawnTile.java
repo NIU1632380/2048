@@ -24,10 +24,10 @@ public class MockSpawnTile extends GameBoard {
             int col = predefinedTiles[index][1];
             int value = predefinedTiles[index][2];
     
-            // Establece el valor de la celda
+            // Stablishes cell value
             getBoard()[row][col] = value;
     
-            // Avanza al siguiente índice para la próxima llamada a spawnTile
+            // Next index for the next call to spawnTile
             index++;
         }
     }
