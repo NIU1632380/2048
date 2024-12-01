@@ -12,6 +12,7 @@ public class GameController {
         this.view = view;
     }
 
+    // Process the input from the user and update the board and score.
     public void processInput(String input) {
         switch (input) {
             case "w": model.handleSwipeUp(); break;

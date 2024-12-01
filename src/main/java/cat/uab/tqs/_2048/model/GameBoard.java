@@ -30,7 +30,8 @@ public class GameBoard {
         }
     }
 
-    public void handleSwipeLeft() {
+    // Handles the swipe left movement at pressing "a" key.
+    public void handleSwipeLeft() { 
         movement = "left";
         boolean hasBoardChanged = false;
 
@@ -56,6 +57,7 @@ public class GameBoard {
         isGameOver = isGameOver(board);
     }
 
+    // Handles the swipe right movement at pressing "d" key.
     public void handleSwipeRight() {
         movement = "right";
         boolean hasBoardChanged = false;
@@ -74,6 +76,7 @@ public class GameBoard {
         isGameOver = isGameOver(board);
     }
 
+    // Handles the swipe up movement at pressing "w" key.
     public void handleSwipeUp() {
         movement = "up";
         boolean hasBoardChanged = false;
@@ -101,6 +104,7 @@ public class GameBoard {
         isGameOver = isGameOver(board);
     }
 
+    // Handles the swipe down movement at pressing "s" key.
     public void handleSwipeDown() {
         movement = "down";
         boolean hasBoardChanged = false;
@@ -127,6 +131,7 @@ public class GameBoard {
         isGameOver = isGameOver(board);
     }
 
+    //Spawns a new tile on the board in an empty cell.
     public void spawnTile() {
         List<int[]> emptyTiles = new ArrayList<>();
         for (int i = 0; i < MAX_LENGTH; i++) {
@@ -147,6 +152,7 @@ public class GameBoard {
         board[position[0]][position[1]] = random.nextDouble() < 0.9 ? 2 : 4;
     }
 
+    // Reverses the order of the elements in an array in order to process the movements.
     public void reverseArray(int[] row) {
         int start = 0;
         int end = row.length - 1;
@@ -160,6 +166,7 @@ public class GameBoard {
         }
     }
 
+    // Processes the movements of the tiles in the board according to the swipe direction.
     public boolean processMovements(int[] row, String movement) {
         int[] originalRow = row.clone();
 
@@ -180,6 +187,7 @@ public class GameBoard {
         return !java.util.Arrays.equals(originalRow, row); // Returning False if the comparison is TRUE (no possible movements)
     }
 
+    // Compresses the row by removing the empty cells.
     public int[] compress(int[] row) {
         int[] newRow = new int[MAX_LENGTH];
         int index = 0;
@@ -193,6 +201,7 @@ public class GameBoard {
         return newRow;
     }
 
+    // Merges the tiles in the row if they have the same value.
     public int[] merge(int[] row) {
         List<Integer> mergedRow = new ArrayList<>();
         boolean[] hasMerged = new boolean[MAX_LENGTH];
@@ -219,6 +228,7 @@ public class GameBoard {
         return mergedArray;
     }
 
+    // Calculates the score of the game by summing all the values in the board.
     public int calculateScore() {
         int score = 0;
         int rows = board.length;
@@ -232,6 +242,7 @@ public class GameBoard {
         return score;
     }
 
+    // Checks if the game is over by verifying if there are no empty cells and no possible moves.
     public boolean isGameOver(int[][] board) {
         // Traverse each cell of the board
         for (int i = 0; i < MAX_LENGTH; i++) {

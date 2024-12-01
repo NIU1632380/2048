@@ -22,26 +22,25 @@ class GameControllerTest {
 
     @BeforeEach
     void setUp() {
-        gameBoard = new GameBoard(); // Usamos el constructor normal, sin controlar aleatoriedad
+        gameBoard = new GameBoard(); // Using the "normal" controller, not taking into account randomness
         mockGameView = mock(GameView.class);
         controller = new GameController(gameBoard, mockGameView);
     }
 
     @Test
     void testProcessInputSwipeUp() {
-        // Inicializamos el tablero con un estado conocido
+        // Initializing the board with a known state
         int[][] initialBoard = {
                 { 0, 0, 0, 0 },
                 { 0, 4, 0, 2 },
                 { 2, 0, 0, 0 },
                 { 0, 8, 0, 2 }
         };
-        gameBoard.setGameBoard(initialBoard); // Establecemos el estado inicial del tablero
+        gameBoard.setGameBoard(initialBoard);
 
-        // Realizamos un movimiento hacia arriba
+
         controller.processInput("w");
 
-        // Verificamos que el tablero haya cambiado correctamente
         int[][] expectedBoard = {
                 { 2, 4, 0, 4 },
                 { 0, 8, 0, 0 },
@@ -49,9 +48,7 @@ class GameControllerTest {
                 { 0, 0, 0, 0 }
         };
 
-        // System.out.println("Expected board:", expectedBoard);
-        // assertArrayEquals(expectedBoard, gameBoard.getBoard()); // Comparamos el
-        // estado esperado
+        //Comparing the expected states
         assertEquals(2, gameBoard.getBoard()[0][0], "first assert failed");
         assertEquals(4, gameBoard.getBoard()[0][3], "second assert failed");
         assertEquals(4, gameBoard.getBoard()[0][1], "third assert failed");
@@ -60,27 +57,25 @@ class GameControllerTest {
 
     @Test
     void testProcessInputSwipeLeft() {
-        // Inicializamos el tablero con un estado conocido
+        //Initializing the board with a known state
         int[][] initialBoard = {
                 { 0, 2, 2, 0 },
                 { 0, 0, 0, 0 },
                 { 0, 8, 8, 0 },
                 { 0, 16, 16, 0 }
         };
-        gameBoard.setGameBoard(initialBoard); // Establecemos el estado inicial del tablero
+        gameBoard.setGameBoard(initialBoard); 
 
-        // Realizamos un movimiento hacia la izquierda
+    
         controller.processInput("a");
 
-        // Verificamos que el tablero haya cambiado correctamente
         int[][] expectedBoard = {
                 { 4, 0, 0, 0 },
                 { 0, 0, 0, 0 },
                 { 16, 0, 0, 0 },
                 { 32, 0, 0, 0 }
         };
-        // assertArrayEquals(expectedBoard, gameBoard.getBoard()); // Comparamos el
-        // estado esperado
+        //Comparing the expected states
         assertEquals(4, gameBoard.getBoard()[0][0], "first assert failed");
         assertEquals(16, gameBoard.getBoard()[2][0], "second assert failed");
         assertEquals(32, gameBoard.getBoard()[3][0], "third assert failed");
@@ -88,19 +83,19 @@ class GameControllerTest {
 
     @Test
     void testProcessInputSwipeDown() {
-        // Inicializamos el tablero con un estado conocido
+        // Initializing the board with a known state
         int[][] initialBoard = {
                 { 2, 2, 0, 0 },
                 { 2, 2, 4, 512 },
                 { 0, 2, 4, 512 },
                 { 0, 0, 0, 0 }
         };
-        gameBoard.setGameBoard(initialBoard); // Establecemos el estado inicial del tablero
+        gameBoard.setGameBoard(initialBoard); 
 
-        // Realizamos un movimiento hacia abajo
+       
         controller.processInput("s");
 
-        // Verificamos que el tablero haya cambiado correctamente
+        //Verifying the board has changed correctly
         int[][] expectedBoard = {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -135,29 +130,14 @@ class GameControllerTest {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 }
         };
-        // assertArrayEquals(expectedBoard, gameBoard.getBoard()); // Comparamos el
-        // estado esperado
+        // assertArrayEquals(expectedBoard, gameBoard.getBoard()); // 
+        
+        // Comparing to the expected states
         assertEquals(4, gameBoard.getBoard()[0][3], "first assert failed");
         assertEquals(8, gameBoard.getBoard()[1][2], "second assert failed");
     }
 
-    /*
-     * @Test
-     * void testProcessInvalidInput() {
-     * // Redirigir la salida estándar a un ByteArrayOutputStream
-     * ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-     * System.setOut(new PrintStream(outContent));
-     * 
-     * // Probar un input no válido
-     * controller.processInput("z");
-     * 
-     * // Verificar que se imprimió el mensaje de error esperado
-     * assertTrue(outContent.toString().contains("Invalid input"));
-     * 
-     * // Restaurar la salida estándar
-     * System.setOut(System.out);
-     * }
-     */
+
 
     @Test
     void testProcessMultipleInputs() {
@@ -170,7 +150,7 @@ class GameControllerTest {
 
         };
         gameBoard.setGameBoard(initialBoard);
-        // Probar una secuencia de entradas
+        //Trying different inputs
 
        /**  System.out.println("sheeetii actual Value: " + Arrays.toString(gameBoard.getBoard()[0]));
         System.out.println("sheeeeti movement actual Value: " + Arrays.toString(gameBoard.getBoard()[1]));
@@ -216,7 +196,7 @@ class GameControllerTest {
         doNothing().when(mockGameView).update(gameBoard.getBoard());
         doNothing().when(mockGameView).showScore(anyInt());
 
-        // Verificar que la vista se actualiza después de cada movimiento
+        //Verifying view updates on every movement
         verify(mockGameView, times(4)).update(gameBoard.getBoard());
         verify(mockGameView, times(1)).showScore(gameBoard.calculateScore());
 
@@ -226,7 +206,7 @@ class GameControllerTest {
     
     @Test
     void testMockGameView() {
-        // Configuramos un estado inicial conocido del tablero
+        // Initial State 
         int[][] initialBoard = {
             { 0, 2, 2, 0 },
             { 0, 0, 0, 0 },
@@ -235,9 +215,9 @@ class GameControllerTest {
         };
         gameBoard.setGameBoard(initialBoard);
 
-        controller.processInput("a");
+        controller.processInput("a");//We do this movement because we control the spawnTile in the left movements
 
-        // Esperamos que el tablero después del movimiento sea este
+        // We expect the board to look like this after the movement
         int[][] expectedBoard = {
             { 4, 0, 0, 2 },
             { 0, 0, 0, 0 },

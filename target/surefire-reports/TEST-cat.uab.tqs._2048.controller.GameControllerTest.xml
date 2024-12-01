@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cat.uab.tqs._2048.controller.GameControllerTest" time="0.588" tests="6" errors="1" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cat.uab.tqs._2048.controller.GameControllerTest" time="0.465" tests="6" errors="1" skipped="0" failures="0">
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -58,23 +58,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase name="testMockGameView" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.485">
-    <failure message="El tablero pasado a la vista no coincide con el esperado ==&gt; array contents differ at index [0][2], expected: &lt;0&gt; but was: &lt;2&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: El tablero pasado a la vista no coincide con el esperado ==> array contents differ at index [0][2], expected: <0> but was: <2>
-	at cat.uab.tqs._2048.controller.GameControllerTest.testMockGameView(TestGameController.java:263)
-]]></failure>
-  </testcase>
-  <testcase name="testProcessInputSwipeRight" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.004"/>
-  <testcase name="testProcessInputSwipeUp" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.002"/>
+  <testcase name="testMockGameView" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.372"/>
+  <testcase name="testProcessInputSwipeRight" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.001"/>
+  <testcase name="testProcessInputSwipeUp" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.001"/>
   <testcase name="testProcessInputSwipeDown" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.001"/>
-  <testcase name="testProcessInputSwipeLeft" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.001"/>
-  <testcase name="testProcessMultipleInputs" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.011">
-    <error message="&#10;Unnecessary stubbings detected.&#10;Clean &amp; maintainable test code requires zero unnecessary code.&#10;Following stubbings are unnecessary (click to navigate to relevant line of code):&#10;  1. -&gt; at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:216)&#10;  2. -&gt; at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:217)&#10;Please remove unnecessary stubbings or use &apos;lenient&apos; strictness. More info: javadoc for UnnecessaryStubbingException class." type="org.mockito.exceptions.misusing.UnnecessaryStubbingException"><![CDATA[org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+  <testcase name="testProcessInputSwipeLeft" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.002"/>
+  <testcase name="testProcessMultipleInputs" classname="cat.uab.tqs._2048.controller.GameControllerTest" time="0.02">
+    <error message="&#10;Unnecessary stubbings detected.&#10;Clean &amp; maintainable test code requires zero unnecessary code.&#10;Following stubbings are unnecessary (click to navigate to relevant line of code):&#10;  1. -&gt; at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:196)&#10;  2. -&gt; at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:197)&#10;Please remove unnecessary stubbings or use &apos;lenient&apos; strictness. More info: javadoc for UnnecessaryStubbingException class." type="org.mockito.exceptions.misusing.UnnecessaryStubbingException"><![CDATA[org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
 
 Unnecessary stubbings detected.
 Clean & maintainable test code requires zero unnecessary code.
 Following stubbings are unnecessary (click to navigate to relevant line of code):
-  1. -> at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:216)
-  2. -> at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:217)
+  1. -> at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:196)
+  2. -> at cat.uab.tqs._2048.controller.GameControllerTest.testProcessMultipleInputs(TestGameController.java:197)
 Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
 ]]></error>
   </testcase>

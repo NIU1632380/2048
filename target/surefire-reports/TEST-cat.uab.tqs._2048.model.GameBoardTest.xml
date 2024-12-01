@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cat.uab.tqs._2048.model.GameBoardTest" time="0.038" tests="17" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cat.uab.tqs._2048.model.GameBoardTest" time="0.027" tests="17" errors="0" skipped="0" failures="1">
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -58,21 +58,25 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase name="testSwipeDown" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.002"/>
-  <testcase name="testSwipeLeft" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testSwipeDown" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testSwipeLeft" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.003">
+    <failure message="Tiles should move correctly after swipe left. ==&gt; expected: &lt;0&gt; but was: &lt;4&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Tiles should move correctly after swipe left. ==> expected: <0> but was: <4>
+	at cat.uab.tqs._2048.model.GameBoardTest.testSwipeLeft(TestGameBoard.java:90)
+]]></failure>
+  </testcase>
   <testcase name="testProcessMovementsLeft" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
   <testcase name="testSpawnTileControlled" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.002"/>
   <testcase name="testInitialBoardHasTwoTiles" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
-  <testcase name="testMerge" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
-  <testcase name="testSetGameBoardValidBoard" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testMerge" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
+  <testcase name="testSetGameBoardValidBoard" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
   <testcase name="testSwipeRight" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
-  <testcase name="testProcessMovementsRight" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
-  <testcase name="testProcessMovements" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
-  <testcase name="testCompress" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
+  <testcase name="testProcessMovementsRight" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
+  <testcase name="testProcessMovements" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.002"/>
+  <testcase name="testCompress" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
   <testcase name="testReverseArray" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
   <testcase name="testIsGameOver" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
   <testcase name="testGameNotOverWhenEmptyTileExists" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
   <testcase name="testSetGameBoardInvalidBoard" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.002"/>
-  <testcase name="testCalculateScore" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.002"/>
+  <testcase name="testCalculateScore" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0"/>
   <testcase name="testSwipeUp" classname="cat.uab.tqs._2048.model.GameBoardTest" time="0.001"/>
 </testsuite>

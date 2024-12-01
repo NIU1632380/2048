@@ -3,7 +3,7 @@ package cat.uab.tqs._2048.view;
 public class GameView {
     
 
-    // Método para actualizar y mostrar el tablero en consola.
+    // Method to update and display the board on the console.
     public void update(int[][] board) {
 
         System.out.println("\n\n\nGame Board:");
@@ -24,6 +24,7 @@ public class GameView {
         System.out.println("Use W (up), A (left), S (down), D (right) to play.");
     }
     
+    // Method to display the score on the console.
     public void showScore(int score) {
         System.out.println("Score: " + score);
     }

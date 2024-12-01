@@ -10,7 +10,7 @@ class GameViewTest {
 
     @Test
     void testUpdateDisplaysBoardCorrectly() {
-        // Configurar el tablero de prueba
+        //Set up the test board
         int[][] board = {
             {2, 0, 4, 0},
             {0, 2, 0, 4},
@@ -19,20 +19,20 @@ class GameViewTest {
         };
         int score = 14;
 
-        // Capturar la salida de consola
+        // Capture console output
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outputStream));
 
-        // Instanciar GameView y llamar al método update
+        // Instantiate GameView and call the update method
         GameView view = new GameView();
         view.update(board);
         view.showScore(score);
 
-        // Restaurar la salida estándar
+        // Restore standard output
         System.setOut(originalOut);
 
-        // Definir la salida esperada
+        // Define the expected output
         String expectedOutput = """
 
             Game Board:
@@ -44,13 +44,13 @@ class GameViewTest {
             Score: 14
             """;
 
-        // Verificar que la salida generada coincide con la esperada
+        // Verify that the generated output matches the expected output
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 
     @Test
     void testUpdateDisplaysEmptyBoard() {
-        // Configurar el tablero vacío
+        // Set up the empty board
         int[][] board = {
             {0, 0, 0, 0},
             {0, 0, 0, 0},
@@ -59,20 +59,20 @@ class GameViewTest {
         };
         int score = 0;
 
-        // Capturar la salida de consola
+        // Capture console output
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outputStream));
 
-        // Instanciar GameView y llamar al método update
+        // Instantiate GameView and call the update method
         GameView view = new GameView();
         view.update(board);
         view.showScore(score);
 
-        // Restaurar la salida estándar
+        // Restore standard output
         System.setOut(originalOut);
 
-        // Definir la salida esperada
+        // Define the expected output
         String expectedOutput = """
 
             Game Board:
@@ -84,13 +84,13 @@ class GameViewTest {
             Score: 0
             """;
 
-        // Verificar que la salida generada coincide con la esperada
+        // Verify that the generated output matches the expected output
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 
     @Test
     void testUpdateDisplaysFullBoard() {
-        // Configurar el tablero lleno
+        // Set up the full board
         int[][] board = {
             {2, 4, 8, 16},
             {32, 64, 128, 256},
@@ -99,20 +99,20 @@ class GameViewTest {
         };
         int score = 131070;
 
-        // Capturar la salida de consola
+        // Capture console output
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outputStream));
 
-        // Instanciar GameView y llamar al método update
+        // Instantiate GameView and call the update method
         GameView view = new GameView();
         view.update(board);
         view.showScore(score);
 
-        // Restaurar la salida estándar
+        // Restore standard output
         System.setOut(originalOut);
 
-        // Definir la salida esperada
+        // Define the expected output
         String expectedOutput = """
 
             Game Board:
@@ -124,7 +124,7 @@ class GameViewTest {
             Score: 131070
             """;
 
-        // Verificar que la salida generada coincide con la esperada
+        // Verify that the generated output matches the expected output
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 }
